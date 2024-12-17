@@ -3,13 +3,24 @@ import { UseGetTopAnime } from '@/data/api/useGetData'
 import { Skeleton } from '../ui/skeleton'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel'
 import Image from 'next/image'
+import { Button } from '../ui/button'
+import { FaPlay } from "react-icons/fa";
+import ModalPlayTrailer from '../organism/ModalPlayTrailer'
+import { useState } from 'react'
 
 function BannerTopAnime() {
-    const { data, isError, isLoading } = UseGetTopAnime()
+    const { data, isError, isLoading } = UseGetTopAnime();
+    const [openModal, setOpenModal] = useState<boolean>(false)
+    const [trailerData, setTrailerData] = useState<any>(null)
 
+    const handleSetTrailer = (trailer:any) =>{
+        setOpenModal(true)
+        setTrailerData(trailer)
+    }
+    console.log(trailerData)
 
     return (
-        <div className="relative px-4 py-1 max-w-8xl mx-auto">
+        <div className="relative py-1 max-w-8xl mx-auto">
             {
                 isLoading ? <div className="flex p-4 justify-center items-center w-full h-[400px]">
                 <Skeleton className="w-full h-full bg-gray-300" />
@@ -29,16 +40,24 @@ function BannerTopAnime() {
                                     className="object-cover w-full h-[400px] group-hover:scale-105 transition-transform duration-500"
                                     />
                                 {/* Overlay Teks */}
-                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
-                                    <h2 className="text-lg font-bold">{item.titles[0].title}</h2>
+                                <div className="absolute bottom-0 left-0 right-0 space-y-3 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+                                <div className="space-y-3 ml-2">
+                                <div className="">
+                                    <h2 className="text-xl font-bold">{item.titles[0].title}</h2>
                                     <p className="text-sm mt-1">
                                         {item.synopsis.slice(0, 100)}...
                                     </p>
+                                </div>
+                                 <Button onClick={()=> handleSetTrailer(item.trailer)} className="flex items-center gap-2">
+                                    <FaPlay /> Putar Trailer
+                                  </Button>
+                                </div>
                                 </div>
                             </div>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
+                <ModalPlayTrailer trailer={trailerData} open={openModal} onClose={() => setOpenModal(false)}/>
                 <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10" />
             </Carousel>
             }

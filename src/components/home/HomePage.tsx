@@ -1,11 +1,13 @@
 import React from 'react'
 import BannerTopAnime from './BannerTopAnime'
+import RecomendationsAnime from './RecomendationsAnime'
 
 const HomePage = () => {
   return (
-    <div>
+    <section className='px-4'>
       <BannerTopAnime/>
-    </div>
+      <RecomendationsAnime/>
+    </section>
   )
 }
 
