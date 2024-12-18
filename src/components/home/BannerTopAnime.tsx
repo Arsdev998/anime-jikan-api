@@ -1,5 +1,5 @@
 "use client"
-import { UseGetTopAnime } from '@/data/api/useGetData'
+import { UseGetTopAnime } from '@/data/api/anime/useGetData'
 import { Skeleton } from '../ui/skeleton'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel'
 import Image from 'next/image'

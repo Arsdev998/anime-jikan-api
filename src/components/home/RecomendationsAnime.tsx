@@ -1,7 +1,8 @@
-import { UseGetRecomendationsAnime } from '@/data/api/useGetData'
+import { UseGetRecomendationsAnime } from '@/data/api/anime/useGetData'
 import React from 'react'
 import { Skeleton } from '../ui/skeleton'
 import AnimeCard from '../organism/AnimeCard'
+import ListSection from '../organism/ListSection'
 
 export default function RecomendationsAnime() {
     const {data, isLoading,isError} = UseGetRecomendationsAnime()
@@ -14,7 +15,7 @@ export default function RecomendationsAnime() {
         <Skeleton/> 
         : 
         <div className='relative py-1 max-w-8xl mx-auto'>
-           <AnimeCard data={data}/>
+           <ListSection data={data}/>
         </div>
       }
     </div>
