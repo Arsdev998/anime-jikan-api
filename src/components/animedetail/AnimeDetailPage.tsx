@@ -35,7 +35,7 @@ const AnimeDetailPage = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Anime Poster */}
           <div className="md:col-span-1">
-            <div className="sticky top-22">
+            <div className="sticky top-16">
               <Image
                 width={300}
                 height={400}
@@ -122,10 +122,10 @@ const AnimeDetailPage = () => {
                 </div>
               </div>
             )}
+          <CharacterSections/>
           </div>
         </div>
       </div>
-           <CharacterSections/>
     </div>
   )
 }

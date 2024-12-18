@@ -3,10 +3,10 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <header className="flex justify-between items-center px-6 py-3 shadow-md border-b sticky top-0 z-50">
+    <header className="flex bg-black justify-between items-center px-6 py-3 shadow-md border-b sticky top-0 z-50">
       <div>
         <h1 className="text-2xl font-bold text-blue-600 hover:text-blue-800 transition duration-300">
-          HeroNime
+          DaysraNime
         </h1>
       </div>
       <nav>

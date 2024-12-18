@@ -10,6 +10,19 @@ export const GetAnimeRecomendations = async()=>{
     return response.data
 }
 
+export const GetAnimeSeasonsNow = async()=>{
+    const response = await axiosInstance.get('/seasons/now')
+    return response.data
+}
+export const GetAnimeSeasonsWinter = async(year:number)=>{
+    const response = await axiosInstance.get(`/seasons/${year}/winter`)
+    return response.data
+}
+export const GetAnimeSeasonsSpring = async(year:number)=>{
+    const response = await axiosInstance.get(`/seasons/${year}/spring`)
+    return response.data
+}
+
 export const GetAnimeById = async(id:string)=>{
     const response = await axiosInstance.get(`/anime/${id}`)
     return response.data
@@ -17,5 +30,9 @@ export const GetAnimeById = async(id:string)=>{
 
 export const GetAnimeCharacter = async(id:string)=>{
     const response = await axiosInstance.get(`/anime/${id}/characters`)
+    return response.data
+}
+export const GetAnimeCharacterDetail = async(id:string)=>{
+    const response = await axiosInstance.get(`/characters/${id}`)
     return response.data
 }
